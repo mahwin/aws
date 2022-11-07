@@ -1,0 +1,23 @@
+EC2 에서 Docker(엘라스틱 빈스톡) vs ECS Fargate
+AWS Docker AMI를 기반으로       |  Docker Run
+ECS 인스턴스 생성할 때 (병목)      |
+Docker 데몬 실행                |   
+Docker Run                    |
+
+ECS Fargate 프로 비저닝이 말도 안 되게 적게 듬
+
+
+ECS의 장점
+
+ 바로 Task를 띄우기 떄문에 Run 시간이 짧다.
+ 리소스를 세세하게 설정가능. (0.25이런 식도 가능함.)
+ 일차 배포후 배포 과정이 선형적임
+
+ 권장 ECS 설정 순서
+
+  Cluster 생성 => ECR 생성 => ELB 생성 => Dockerfile 작성 => Docker Image ECR에 푸시 => 작업 명시 => create Serivce
+  그 다음은 Dockerfile 작성 => Docker Image ECR에 푸시 => 작업 명시 => Update Serivce
+Cluster는 일종의 디렉토리 정도
+
+
+Task Definition은 어떤 작업을 할 지를 명시하는 것이고 논리가 들어가는 것은 아님!
